@@ -1,12 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import {useDispatch} from 'react-redux'
+
+import { Link } from 'react-router-dom';
+import { login } from '../../actions/auth';
+import { useForm } from '../../hooks/useForm';
 
 export const LoginScreen = () => {
+
+    //Dispatches the login action
+    const dispatch = useDispatch();
+
+    //Initial state
+    const [ formValues, handleInputChange ] = useForm({
+        email: 'correo1@gmail.com',
+        password: '123456',
+    });
+
+    //obj destructuring
+    const {email,password} = formValues;
+
+    // action Submit form
+    const handleLogin = (e) => {
+        e.preventDefault();
+        dispatch(login(12345, 'Adrian')); //dispatch the action login
+    }
+
+
     return (
         <div>
             <h3 className="auth__title">Login</h3>
 
-            <form>
+            <form onSubmit={handleLogin}>
 
                 <input
                     type="text"
@@ -14,6 +38,8 @@ export const LoginScreen = () => {
                     name="email"
                     className="auth__input"
                     autoComplete="off"
+                    value={email} //value from destructuring
+                    onChange={handleInputChange} //from initial state
                 />
 
                 <input
@@ -21,6 +47,8 @@ export const LoginScreen = () => {
                     placeholder="Password"
                     name="password"
                     className="auth__input"
+                    value={password} //value from destructuring
+                    onChange={handleInputChange} //from initial state
                 />
 
                 <button
