@@ -15,7 +15,7 @@ export const RegisterScreen = () => {
 
     //Initial state
     const [ formValues, handleInputChange ] = useForm({
-        name: 'Adrian',
+        name: 'Oxim',
         email: 'correo1@gmail.com',
         password: '123456',
         password2: '123456',
@@ -43,7 +43,7 @@ export const RegisterScreen = () => {
         } else if ( !validator.isEmail(email) ){
             dispatch(setError('Email is not valid'));
             return false;
-        }else if( password != password2 || password.length < 5 ){
+        }else if( password !== password2 || password.length < 5 ){
             dispatch(setError('Password should be at least 6 characters and match each other'));
             return false
         }
