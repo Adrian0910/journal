@@ -19,7 +19,7 @@ export const startLoginEmailPassword = (email, password) => {
                 console.log(e);
                 dispatch( finishLoading() );
                 Swal.fire('Faild', e.message, 'error');
-            })
+            });
         
     }
 }
@@ -37,7 +37,7 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
             }).catch( e => {
                 console.log(e);
                 Swal.fire('Faild', e.message, 'error');
-            })
+            });
     }
 }
 
@@ -49,7 +49,10 @@ export const startGoogleLogin = () => {
                 dispatch(
                     login( user.uid, user.displayName )
                 )
-            });   
+            }).catch( e => {
+                console.log(e);
+                Swal.fire('Faild', e.message, 'error');
+            }); 
     }
 }
 

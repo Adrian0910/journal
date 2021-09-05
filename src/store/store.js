@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'; //middleware with thumb
 
 import { authReducer } from '../reducers/authReducer';
 import { uiReducer } from '../reducers/uiReducer';
+import { notesReducer } from '../reducers/notesReducer';
 
 //Next line is for using redux dev tools
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -15,6 +16,7 @@ const reducers = combineReducers({
     //our individual reducers
     auth: authReducer,
     ui: uiReducer,
+    notes: notesReducer,
 });
 
 export  const store = createStore(
