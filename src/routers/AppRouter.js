@@ -13,15 +13,15 @@ import { useDispatch } from "react-redux";
 import { login } from "../actions/auth";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
-import { loadNotes } from "../helpers/loadNotes";
-import { setNotes } from "../actions/notes";
+import { startLoadingNotes } from "../actions/notes";
+
 
 export const AppRouter = () => {
 
     const dispatch = useDispatch();
 
     const [checking, setChecking] = useState(true);
-    const [isLoggedIn, setIsloggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // auth state 
     useEffect(() => {
@@ -30,18 +30,19 @@ export const AppRouter = () => {
         firebase.auth().onAuthStateChanged( async(user) => {
             
             if( user?.uid ){
-                dispatch(login( user.displayName, user.displayName ));
-                setIsloggedIn(true);
-
-                const notes = await loadNotes( user.uid );
-                dispatch( setNotes(notes) );
+                dispatch(login( user.uid, user.displayName ));
+                setIsLoggedIn(true);
+                
+                // loadNotes(user.id);
+                dispatch( startLoadingNotes(user.uid) );
+                
 
             }else {
-                setIsloggedIn(false);
+                setIsLoggedIn(false);
             }
             setChecking(false);
         });
-    }, [dispatch, setChecking, setIsloggedIn]);
+    }, [dispatch, setChecking, setIsLoggedIn]);
 
     if( checking ){
         return(

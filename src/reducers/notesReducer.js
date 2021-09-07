@@ -1,3 +1,4 @@
+import { types } from "../types/types";
 
 /*  state 
     notes: [],
@@ -11,7 +12,6 @@
     }
 */
 
-import { types } from "../types/types";
 
 const initialState = {
     notes: [],
@@ -30,7 +30,7 @@ export const notesReducer = (state = initialState, action) => {
                 }
             }
         case types.notesLoad:
-            console.log(action.payload);
+            console.log(action.payload)
             return {
                 ...state,
                 notes: [...action.payload]

@@ -19,7 +19,7 @@ export const Sidebar = () => {
     }
 
     const handleAddNew = () => {
-        dispatch(startNewNote());
+        dispatch( startNewNote() );
     }
 
     return (
