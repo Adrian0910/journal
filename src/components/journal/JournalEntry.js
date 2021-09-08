@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 
 export const JournalEntry = ( {id, date, title, body, url} ) => {
 
+
     const noteDate = moment(date);
     const dispatch = useDispatch();
 
@@ -43,7 +44,6 @@ export const JournalEntry = ( {id, date, title, body, url} ) => {
                     className="journal__entry-content"
                 >
                      {body}
-                    
                 </p>
             </div>
 

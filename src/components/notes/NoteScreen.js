@@ -10,6 +10,7 @@ export const NoteScreen = () => {
     const dispatch = useDispatch();    
 
     const { active: note } = useSelector( state => state.notes );
+    
     const [ formValues, handleInputChange, reset ] = useForm(note);
     const { body, title } = formValues;
     
@@ -25,7 +26,9 @@ export const NoteScreen = () => {
     }, [note, reset]);
 
     useEffect(() => {
-        dispatch( activeNote( formValues.id, {...formValues} ) );
+        dispatch( 
+            activeNote( formValues.id, {...formValues} ) 
+            );
     }, [formValues, dispatch]);
 
 
@@ -42,7 +45,7 @@ export const NoteScreen = () => {
                     placeholder="Some awesome title"
                     className="notes__title-input"
                     autoComplete="off"
-                    name={title}
+                    name="title"
                     value={title}
                     onChange={handleInputChange}
                 />
@@ -50,7 +53,7 @@ export const NoteScreen = () => {
                 <textarea
                     placeholder="What happened today?"
                     className="notes__textarea"
-                    name={body}
+                    name="body"
                     value={body}
                     onChange={handleInputChange}
                 ></textarea>
@@ -61,7 +64,7 @@ export const NoteScreen = () => {
                         <div >
                             <img 
                                 className="notes__image"
-                                src="https://mott.pe/noticias/wp-content/uploads/2019/03/los-50-paisajes-maravillosos-del-mundo-para-tomar-fotos-1280x720.jpg"
+                                src={ note.url }
                                 alt="scenery"
                             />
                         </div>
