@@ -13,8 +13,8 @@ export const LoginScreen = () => {
 
     //Initial state
     const [ formValues, handleInputChange ] = useForm({
-        email: 'correo1@gmail.com',
-        password: '123456',
+        email: '',
+        password: '',
     });
 
     //obj destructuring

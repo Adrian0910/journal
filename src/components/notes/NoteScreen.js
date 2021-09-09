@@ -64,7 +64,7 @@ export const NoteScreen = () => {
                 {
                     (note.url) &&
                     (
-                        <div >
+                        <div className="notes__file">
                             <img 
                                 className="notes__image"
                                 src={ note.url }

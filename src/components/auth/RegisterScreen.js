@@ -15,10 +15,10 @@ export const RegisterScreen = () => {
 
     //Initial state
     const [ formValues, handleInputChange ] = useForm({
-        name: 'Oxim',
-        email: 'correo1@gmail.com',
-        password: '123456',
-        password2: '123456',
+        name: '',
+        email: '',
+        password: '',
+        password2: '',
     });
 
     //obj destructuring

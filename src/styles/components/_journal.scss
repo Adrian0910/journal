@@ -81,17 +81,20 @@
     border-radius: 4px;
     color: $dark-grey;
     display: flex;
-    margin-bottom: 10px;
+    flex: 3;
     justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .journal__entry-picture{
-    height: 75px;
-    width: 75px;
+    height: auto;
+    width: 100px;
 }
 
 .journal__entry-body{
-    padding: 10px;
+    padding: 2%;
+    width: 100%;
+   
 }
 
 .journal__entry-title{
@@ -108,7 +111,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5px;
+    
+    padding: 2%;
 }
 
 .journal__entry-date-box span{
