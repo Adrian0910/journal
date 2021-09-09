@@ -20,7 +20,7 @@ export const JournalEntry = ( {id, date, title, body, url} ) => {
 
     return (
         <div 
-            className="journal__entry pointer"
+            className="journal__entry pointer animate__animated animate__bounceInDown animate__faster"
             onClick={handleEntryClick}
         >
             {
